@@ -1,3 +1,6 @@
+from Person import Person
+
+
 class NameList(object):
     def __init__(self):
         self.people = {}
@@ -7,8 +10,11 @@ class NameList(object):
             return True
         return False
 
-    def insert(self, name, age):
-        self.people[name] = age
+    def insert(self, name, age, userid):
+        self.people[userid] = Person(name, age)
 
-    def lookup_age(self, name):
-        return self.people[name]
+    def remove(self, userid):
+        self.people.pop(userid)
+
+    def lookup_person(self, userid):
+        return self.people[userid]
